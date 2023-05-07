@@ -20,3 +20,14 @@ export const getAdmins = async (req, res) => {
         res.status(400).json({ data: error.message });
     }
 }
+
+export const getOneAdmin = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const result = await getOneAdminById(id);
+        res.status(200).json({ data: result, status: 'success' });
+    }
+    catch (error) {
+        res.status(400).json({ data: error.message });
+    }
+}

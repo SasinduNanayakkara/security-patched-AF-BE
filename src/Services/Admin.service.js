@@ -19,3 +19,13 @@ export const getAllAdmins = async () => {
         throw new Error(error);
     }
 }
+
+export const getOneAdminById = async (id) => {
+    try {
+        const result = await getOneAdmin(id);
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+}
