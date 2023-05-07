@@ -29,3 +29,23 @@ export const getOneAdminById = async (id) => {
         throw new Error(error);
     }
 }
+
+export const updateAdminById = async (id, {firstName, lastName, email, password}) => {
+    try {
+        const result = await updateAdmin(id, {firstName, lastName, email, password});
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+}
+
+export const deleteAdminById = async (id) => {
+    try {
+        const result = await deleteAdmin(id);
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+}
