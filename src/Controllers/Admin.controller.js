@@ -10,3 +10,13 @@ export const addAdmin = async (req, res) => {
         res.status(400).json({ data: error.message });
     }
 }
+
+export const getAdmins = async (req, res) => {
+    try {
+        const result = await getAllAdmins();
+        res.status(200).json({ data: result, status: 'success' });
+    }
+    catch (error) {
+        res.status(400).json({ data: error.message });
+    }
+}

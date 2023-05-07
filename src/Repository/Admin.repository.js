@@ -9,3 +9,13 @@ export const addAdmin = async ({firstName, lastName, email, password}) => {
         throw new Error(error);
     }
 };
+
+export const getAdmins = async () => {
+    try {
+        const result = await Admin.find();
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+};
