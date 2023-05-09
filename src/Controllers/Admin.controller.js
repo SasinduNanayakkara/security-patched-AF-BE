@@ -43,3 +43,14 @@ export const updateAdmin = async (req, res) => {
         res.status(400).json({ data: error.message });
     }
 }
+
+export const deleteAdmin = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const result = await deleteAdminById(id);
+        res.status(200).json({ data: result, status: 'success' });
+    }
+    catch (error) {
+        res.status(400).json({ data: error.message });
+    }
+}

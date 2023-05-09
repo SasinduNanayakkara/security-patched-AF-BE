@@ -49,3 +49,13 @@ export const updateAdmin = async (id, {firstName, lastName, email, password}) =>
         throw new Error(error);
     }
 }
+
+export const deleteAdmin = async (id) => {
+    try {
+        const result = await Admin.findByIdAndDelete(id);
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+};
