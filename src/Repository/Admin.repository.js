@@ -10,3 +10,12 @@ export const addAdmin = async ({firstName, lastName, email, password}) => {
     }
 };
 
+export const getAdmins = async () => {
+    try {
+        const result = await Admin.find();
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+};
