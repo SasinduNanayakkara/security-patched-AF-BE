@@ -40,6 +40,16 @@ export const updateClientById = async (id, {firstName, lastName, email, password
     }
 }
 
+export const getClientByEmail = async (email) => {
+    try {
+        const result = await Client.findOne({email});
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+}
+
 export const deleteClientById = async (id) => {
     try {
         const result = await Client.findByIdAndDelete(id);
