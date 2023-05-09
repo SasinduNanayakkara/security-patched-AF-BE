@@ -6,5 +6,6 @@ const router = Router();
 router.post("/", AdminController.addAdmin);
 router.get("/", AdminController.getAdmins);
 router.get("/:id", AdminController.getOneAdmin);
+router.put("/:id", AdminController.updateAdmin);
 
 export default router;

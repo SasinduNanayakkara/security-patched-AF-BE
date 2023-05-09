@@ -29,3 +29,23 @@ export const getOneAdmin = async (id) => {
         throw new Error(error);
     }
 }
+
+export const getAdminByEmail = async (email) => {
+    try {
+        const result = await Admin.findOne({email});
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+}
+
+export const updateAdmin = async (id, {firstName, lastName, email, password}) => {
+    try {
+        const result = await Admin.findByIdAndUpdate(id, {firstName, lastName, email, password});
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+}
