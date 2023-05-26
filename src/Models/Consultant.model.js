@@ -29,6 +29,43 @@ const ConsultantSchema = new Schema({
     location:{
         type: String,
         required: true,
+    },
+    prefix: {
+        type: String,
+        required: false,
+        enum: ['Mr', 'Ms', 'Mrs', 'Dr', 'Prof', 'Ven']
+    },
+    profileImage: {
+        type: String,
+        required: false,
+    }
+,
+    skills: {
+        type: [String],
+        required: false,
+    },
+    status: {
+        type: String,
+        enum: ["Approved","Pending","Rejected"],
+        required: false,
+        default: "Pending",
+    },
+    description: {
+        type: String,
+        required: false,
+    },
+    dateTime: {
+        type: Date,
+        required: false,
+    },
+    prefix: {
+        type: String,
+        required: false,
+        enum: ['Mr', 'Ms', 'Mrs', 'Dr', 'Prof', 'Ven']
+    },
+    profileImage: {
+        type: String,
+        required: false,
     }
 }, { timestamps: true });
 
