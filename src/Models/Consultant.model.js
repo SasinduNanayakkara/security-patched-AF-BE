@@ -67,6 +67,6 @@ const ConsultantSchema = new Schema({
         type: String,
         required: false,
     }
-}, { timestamps: true });
+}, { timestamps: true, minimize: false });
 
 export const Consultant = mongoose.model("Consultant", ConsultantSchema);
