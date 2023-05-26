@@ -8,5 +8,6 @@ router.get("/", ConsultantController.getConsultants);
 router.get("/:id", ConsultantController.getOneConsultant);
 router.put("/:id", ConsultantController.updateConsultant);
 router.delete("/:id", ConsultantController.deleteConsultant);
+router.put("/status/:id", ConsultantController.updateConsultantStatus);
 
 export default router;
