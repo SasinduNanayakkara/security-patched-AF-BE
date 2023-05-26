@@ -1,4 +1,4 @@
-import { Article } from "../Models/article.model";
+import { Article } from "../Models/Article.model";
 
 export const createArticle = async ({title, content, category, author, images, comments}) => {
     try {
