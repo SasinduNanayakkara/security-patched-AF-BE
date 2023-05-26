@@ -1,6 +1,6 @@
 import { getAdminByEmail } from "../Repository/Admin.repository"
 import { getClientByEmail } from "../Repository/Client.repository";
-import { getConsultantByEmail } from "../Repository/Consultant.controller";
+import { getConsultantByEmail } from "../Repository/Consultant.repository";
 
 export const loginService = async ({email, password}) => {
     const isAdmin = await getAdminByEmail(email);
