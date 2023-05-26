@@ -10,3 +10,42 @@ export const createAdmin = async ({firstName, lastName, email, password}) => {
     }
 }
 
+export const getAllAdmins = async () => {
+    try {
+        const result = await getAdmins();
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+}
+
+export const getOneAdminById = async (id) => {
+    try {
+        const result = await getOneAdmin(id);
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+}
+
+export const updateAdminById = async (id, {firstName, lastName, email, password}) => {
+    try {
+        const result = await updateAdmin(id, {firstName, lastName, email, password});
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+}
+
+export const deleteAdminById = async (id) => {
+    try {
+        const result = await deleteAdmin(id);
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+}
