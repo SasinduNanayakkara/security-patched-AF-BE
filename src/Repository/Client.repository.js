@@ -1,8 +1,8 @@
 import { Client } from "../Models/Client.model";
 
-export const createClient = async ({firstName, lastName, email, password, phone, location, symptoms}) => {
+export const createClient = async ({firstName, lastName, email, password, phone, location, prefix, profileImage}) => {
     try {
-        const result = await Client.create({firstName, lastName, email, password, phone, location, symptoms});
+        const result = await Client.create({firstName, lastName, email, password, phone, location, prefix, profileImage});
         return result;
     }
     catch (error) {
@@ -30,9 +30,9 @@ export const getClientById = async (id) => {
     }
 }
 
-export const updateClientById = async (id, {firstName, lastName, email, password, phone, location, symptoms}) => {
+export const updateClientById = async (id, {firstName, lastName, email, password, phone, location, prefix, profileImage}) => {
     try {
-        const result = await Client.findByIdAndUpdate(id, {firstName, lastName, email, password, phone, location, symptoms});
+        const result = await Client.findByIdAndUpdate(id, {firstName, lastName, email, password, phone, location, prefix, profileImage});
         return result;
     }
     catch (error) {
