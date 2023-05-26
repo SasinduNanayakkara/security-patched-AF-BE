@@ -10,10 +10,6 @@ const ArticleSchema = new Schema({
         type: String,
         required: true,
     },
-    category: {
-        type: String,
-        required: true,
-    },
     author:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Consultant",
@@ -28,6 +24,7 @@ const ArticleSchema = new Schema({
             ref: "Client",
         },
         comment: String,
+        default: [],
     }],
 }, { timestamps: true });
 
