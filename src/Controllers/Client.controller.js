@@ -1,9 +1,9 @@
 import { addClient, deleteClient, getClients, getOneClient, updateClient } from "../Services/Client.service";
 
 export const createClient = async (req, res) => {
-    const { firstName, lastName, email, password, phone, location, symptoms } = req.body;
+    const { firstName, lastName, email, password, phone, location, prefix, profileImage } = req.body;
     try {
-        const result = await addClient({ firstName, lastName, email, password, phone, location, symptoms });
+        const result = await addClient({ firstName, lastName, email, password, phone, location, prefix, profileImage });
         res.status(201).json({ data: result, status: 'success' });
     }
     catch (error) {
@@ -34,9 +34,9 @@ export const getOneClientById = async (req, res) => {
 
 export const updateClientById = async (req, res) => {
     const id = req.params.id;
-    const { firstName, lastName, email, password, phone, location, symptoms } = req.body;
+    const { firstName, lastName, email, password, phone, location, prefix, profileImage} = req.body;
     try {
-        const result = await updateClient(id, { firstName, lastName, email, password, phone, location, symptoms });
+        const result = await updateClient(id, { firstName, lastName, email, password, phone, location, prefix, profileImage});
         res.status(200).json({ data: result, status: 'success' });
     }
     catch (error) {
