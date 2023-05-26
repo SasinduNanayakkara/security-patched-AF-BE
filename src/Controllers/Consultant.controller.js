@@ -1,9 +1,8 @@
-import { createConsultant, deleteConsultantById, getAllConsultants, getOneConsultantById, updateConsultantById } from "../Services/Consultant.service";
+import { createConsultant, deleteConsultantById, getAllConsultants, getOneConsultantById, updateConsultantById,updateConsultantStatusById } from "../Services/Consultant.service";
 
 export const addConsultant = async (req, res) => {
-    const { firstName, lastName, specialization, email, password, phone, location } = req.body;
-    try {
-        const result = await createConsultant({ firstName, lastName, specialization, email, password, phone, location });
+    const { firstName, lastName, specialization, email, password, phone, location, skills, status, description, dateTime, prefix, profileImage } = req.body;    try {
+        const result = await createConsultant({ firstName, lastName, specialization, email, password, phone, location, skills, status, description, dateTime, prefix, profileImage });
         res.status(201).json({ data: result, status: 'success' });
     }
     catch (error) {
@@ -34,9 +33,9 @@ export const getOneConsultant = async (req, res) => {
 
 export const updateConsultant = async (req, res) => {
     const id = req.params.id;
-    const { firstName, lastName, specialization, email, password, phone, location } = req.body;
+    const { firstName, lastName, specialization, email, password, phone, location, skills, status, description, dateTime, prefix, profileImage  } = req.body;
     try {
-        const result = await updateConsultantById(id, { firstName, lastName, specialization, email, password, phone, location });
+        const result = await updateConsultantById(id, { firstName, lastName, specialization, email, password, phone, location, skills, status, description, dateTime, prefix, profileImage  });
         res.status(200).json({ data: result, status: 'success' });
     }
     catch (error) {
@@ -54,3 +53,14 @@ export const deleteConsultant = async (req, res) => {
         res.status(400).json({ data: error.message });
     }
 }
+
+export const updateConsultantStatus = async (req, res) => {
+    try {
+        const { id,status } = req.body;
+        const result = await updateConsultantStatusById(id, { status });
+        res.status(200).json({ data: result, status: 'success' });
+    }
+    catch (error) {
+        res.status(400).json({ data: error.message });
+    }
+};
