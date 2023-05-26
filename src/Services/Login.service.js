@@ -21,13 +21,13 @@ export const loginService = async ({email, password}) => {
         decryptedClientPassword = await bcrypt.compare(password, isClient.password);
     }
     if (decryptedAdminPassword) {
-            return isAdmin;
+            return {isAdmin, role: "admin"};
     }
     else if (decryptedConsultantPassword) {   
-            return isConsultant;
+            return {isConsultant, role: "consultant"};
     }
     else if (decryptedClientPassword) {
-            return isClient;
+            return {isClient, role: "client"};
     }
     else {
         throw new Error("No User Found");
