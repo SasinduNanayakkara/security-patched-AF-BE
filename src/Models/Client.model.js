@@ -26,10 +26,15 @@ const ClientSchema = new Schema({
         type: String,
         required: true,
     },
-    symptoms:{
+    prefix: {
         type: String,
-        required: true,
-    }
+        required: false,
+        enum: ['Mr', 'Ms', 'Mrs', 'Dr', 'Prof', 'Ven']
+    },
+    profileImage: {
+        type: String,
+        required: false,
+    },
 }, { timestamps: true });
 
 export const Client = mongoose.model("Client", ClientSchema);
