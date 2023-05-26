@@ -51,7 +51,7 @@ const ConsultantSchema = new Schema({
         default: "Pending",
     },
     description: {
-        type: String,
+        type: Object,
         required: false,
     },
     dateTime: {
