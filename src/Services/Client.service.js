@@ -1,12 +1,12 @@
 import { createClient, deleteClientById, getAllClients, getClientById, updateClientById } from "../Repository/Client.repository";
 import bcrypt from "bcrypt";
 
-export const addClient = async ({firstName, lastName, email, password, phone, location, symptoms}) => {
+export const addClient = async ({firstName, lastName, email, password, phone, location, prefix, profileImage}) => {
 
     const encryptedPassword = await bcrypt.hash(password, 10);
 
     try {
-        const result = await createClient({firstName, lastName, email, password: encryptedPassword, phone, location, symptoms});
+        const result = await createClient({firstName, lastName, email, password: encryptedPassword, phone, location, prefix, profileImage});
         return result;
     }
     catch (error) {
@@ -34,9 +34,9 @@ export const getOneClient = async (id) => {
     }
 }
 
-export const updateClient = async (id, {firstName, lastName, email, password, phone, location, symptoms}) => {
+export const updateClient = async (id, {firstName, lastName, email, password, phone, location, prefix, profileImage}) => {
     try {
-        const result = await updateClientById(id, {firstName, lastName, email, password, phone, location, symptoms});
+        const result = await updateClientById(id, {firstName, lastName, email, password, phone, location, prefix, profileImage});
         return result;
     }
     catch (error) {
