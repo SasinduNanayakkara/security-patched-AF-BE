@@ -1,8 +1,8 @@
 import { Article } from "../Models/Article.model";
 
-export const createArticle = async ({title, content, category, author, images, comments}) => {
+export const createArticle = async ({title, content, author, images, comments}) => {
     try {
-        const result = await Article.create({title, content, category, author, images, comments});
+        const result = await Article.create({title, content,author, images, comments});
         return result;
     }
     catch (error) {
@@ -40,9 +40,9 @@ export const getArticlesByCategory = async (category) => {
     }
 }
 
-export  const updateArticle = async (id, {title, content, category, author, images, comments}) => {
+export  const updateArticle = async (id, {title, content,author, images, comments}) => {
     try {
-        const result = await Article.findByIdAndUpdate(id, {title, content, category, author, images, comments});
+        const result = await Article.findByIdAndUpdate(id, {title, content,author, images, comments});
         console.log("repo result", result);
         return result;
     }
