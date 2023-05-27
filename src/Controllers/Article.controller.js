@@ -1,4 +1,4 @@
-import { addArticle, addCommentToAnArticle, deleteArticleById, getArticleById, getArticles, getArticlesUsingCategory, updateArticleById } from "../Services/Article.service"
+import { addArticle, addCommentToAnArticle, deleteArticleById, getArticleById, getArticles, getArticlesUsingCategory, getAuthorArticles, updateArticleById } from "../Services/Article.service"
 
 export const createArticle = async (req, res) => {
     const {title, content, category, author, images, comments} = req.body;
@@ -74,6 +74,16 @@ export const deleteArticle = async (req, res) => {
         const result = await deleteArticleById(id);
         res.status(200).json({ data: result, status: 'success' });
     }
+    catch (error) {
+        res.status(400).json({ data: error.message, status: 'error' });
+    }
+}
+
+export const getArticlesByAuthor = async (req, res) => {
+    try{
+        const result = await getAuthorArticles(req.params.author);
+        res.status(200).json({ data: result, status: 'success' });
+    }   
     catch (error) {
         res.status(400).json({ data: error.message, status: 'error' });
     }
