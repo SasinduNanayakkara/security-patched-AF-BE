@@ -1,4 +1,4 @@
-import { addCommentToArticle, createArticle, deleteArticle, getAllArticles, getArticlesByCategory, getOneArticle, updateArticle } from "../Repository/Article.repository";
+import { addCommentToArticle, createArticle, deleteArticle, getAllArticles, getArticlesByAuthor, getArticlesByCategory, getOneArticle, updateArticle } from "../Repository/Article.repository";
 
 export const addArticle = async ({title, content, category, author, images, comments}) => {
     try {
@@ -65,6 +65,16 @@ export const addCommentToAnArticle = async (id, {user, comment}) => {
 export const deleteArticleById = async (id) => {
     try {
         const result = await deleteArticle(id);
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+}
+
+export const getAuthorArticles = async (author) => {
+    try {
+        const result = await getArticlesByAuthor(author);
         return result;
     }
     catch (error) {

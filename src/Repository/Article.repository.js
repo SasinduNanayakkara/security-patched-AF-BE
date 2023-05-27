@@ -79,3 +79,13 @@ export const deleteArticle = async (id) => {
         throw new Error(error);
     }
 }
+
+export const getArticlesByAuthor = async (author) => {
+    try {
+        const result = await Article.find({author: author});
+        return result;
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+}
