@@ -10,5 +10,6 @@ router.get("/category/:category", ArticleController.getArticlesByCategory);
 router.put("/:id", ArticleController.updateArticle);
 router.delete("/:id", ArticleController.deleteArticle);
 router.put("/comments/:id", ArticleController.addCommentToArticle);
+router.get("/author/:author", ArticleController.getArticlesByAuthor);
 
 export default router;
