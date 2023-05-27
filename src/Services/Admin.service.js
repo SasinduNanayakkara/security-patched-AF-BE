@@ -1,4 +1,4 @@
-import { addAdmin, getAdmins, getOneAdmin, updateAdmin } from "../Repository/Admin.repository"
+import { addAdmin, deleteAdmin, getAdmins, getOneAdmin, updateAdmin } from "../Repository/Admin.repository"
 import bcrypt from "bcrypt";
 
 export const createAdmin = async ({firstName, lastName, email, password}) => {
