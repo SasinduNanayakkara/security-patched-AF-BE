@@ -26,6 +26,6 @@ const ArticleSchema = new Schema({
         comment: String,
         default: [],
     }],
-}, { timestamps: true });
+}, { timestamps: true, minimize: false });
 
 export const Article = mongoose.model("Article", ArticleSchema);
