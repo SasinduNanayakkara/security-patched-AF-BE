@@ -12,7 +12,3 @@ export const sendTokenResponse = async (res, user, message) => {
 export const generateToken = async (user) => {
     return jwt.sign({data: user}, process.env.JWT_SECRET, {expiresIn: `${process.env.JWT_EXPIRE}d`})
 }
-
-export const verifyToken = async (token) => {
-    return jwt.verify(token, process.env.JWT_SECRET);
-}

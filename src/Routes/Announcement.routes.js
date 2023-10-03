@@ -1,12 +1,14 @@
 import { Router } from "express";
 import * as AnnouncementController from "../Controllers/Announcemnt.controller";
+import { verifyToken } from "../Utils/verifyToken";
+
 
 const router = Router();
 
-router.post("/", AnnouncementController.addAnnouncement);
+router.post("/",verifyToken, AnnouncementController.addAnnouncement);
 router.get("/", AnnouncementController.getAnnouncements);
 router.get("/:id", AnnouncementController.getOneAnnouncement);
-router.put("/:id", AnnouncementController.updateAnnouncement);
-router.delete("/:id", AnnouncementController.deleteAnnouncement);
+router.put("/:id",verifyToken, AnnouncementController.updateAnnouncement);
+router.delete("/:id",verifyToken, AnnouncementController.deleteAnnouncement);
 
 export default router;

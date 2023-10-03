@@ -1,5 +1,4 @@
 import express from "express";
-import helmet from  'helmet';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { connectDB } from "./database/database";
@@ -7,7 +6,6 @@ import routes from "./Routes/index.routes";
 
 const app = express();
 dotenv.config();
-app.use(helmet());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

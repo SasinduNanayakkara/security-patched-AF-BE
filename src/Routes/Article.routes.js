@@ -1,6 +1,5 @@
 import { Router } from "express";
 import * as ArticleController from "../Controllers/Article.controller";
-
 const router = Router();
 
 router.post("/", ArticleController.createArticle);
