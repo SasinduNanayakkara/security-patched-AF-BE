@@ -2,6 +2,9 @@ import { createClient, deleteClientById, getAllClients, getClientById, updateCli
 import bcrypt from "bcrypt";
 
 export const addClient = async ({firstName, lastName, email, password, phone, location, prefix, profileImage}) => {
+    if(!passwordValidation(password)) {
+        throw new Error("Invalid format for password");
+    }
 
     const encryptedPassword = await bcrypt.hash(password, 10);
 
