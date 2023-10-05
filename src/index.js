@@ -1,18 +1,25 @@
 import express from "express";
 import cors from 'cors';
 import dotenv from 'dotenv';
+dotenv.config();
 import { connectDB } from "./database/database";
 import routes from "./Routes/index.routes";
 
+
+
 const app = express();
-dotenv.config();
-app.use(cors());
+var corsOptions = {
+    origin: 'http://localhost:3000/',
+}
+app.use(cors(corsOptions));
+
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+
 // Connect to MongoDB
 connectDB();
-
 app.get('/', (req, res) => res.status(200).json({message: 'AF Server up and Running'}));
 
 // Routes
