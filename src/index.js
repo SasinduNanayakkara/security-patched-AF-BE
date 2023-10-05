@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import { connectDB } from "./database/database";
 import routes from "./Routes/index.routes";
+import expressRateLimiter from "./middleware/rateLimiter";
 
 
 
@@ -16,6 +17,8 @@ app.use(cors(corsOptions));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+//rate limit added.
+app.use(expressRateLimiter);
 
 
 // Connect to MongoDB
