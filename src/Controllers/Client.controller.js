@@ -7,13 +7,17 @@ export const createClient = async (req, res) => {
         res.status(201).json({ data: result, status: 'success' });
     }
     catch (error) {
-        res.status(400).json({ data: error.message, status: 'error' });
+        res.status(403).json({ data: error.message, status: 'error' });
     }
 }
 
 export const getALLClients = async (req, res) => {
     try {
         const result = await getClients();
+        console.log(result);
+        for(let item of result) {
+            delete item.password
+        }
         res.status(200).json({ data: result, status: 'success' });
     }
     catch (error) {
